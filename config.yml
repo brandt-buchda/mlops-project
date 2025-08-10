@@ -1,0 +1,50 @@
+project_id: "<PROJECT_ID>"
+region: "us-central1"
+bucket_uri: "gs://<BUCKET_NAME>"
+artifact_bucket_uri: "gs://<BUCKET_NAME>/artifacts"
+bq_dataset: "<BQ_DATASET>"
+bq_table: "<BQ_TABLE>"
+service_account: "<SERVICE_ACCOUNT_EMAIL>"
+image_uri: "<REGION>-docker.pkg.dev/<PROJECT_ID>/<REPO_NAME>/weight-extractor:latest"
+
+# Database configuration
+database:
+  host: "localhost"
+  name: "gfv_db"
+  user: "<POSTGRES_USER>"
+  password: "<POSTGRES_PASSWORD>"
+  port: 5432
+
+# Data extraction configuration
+extraction:
+  table: "product_raw"
+  columns:
+    - "name_raw"
+    - "url"
+    - "weight_lbs"
+    - "variant_name_raw"
+    - "description_raw"
+
+# Upload configuration
+upload:
+  # Upload extracted data to BigQuery
+  to_bigquery: true
+  bigquery_table: "product_raw_extracted"  # Table name for extracted data
+  
+  # Optionally also upload to Cloud Storage as backup
+  to_gcs: false
+  gcs_filename: "product_raw_data.csv"
+
+training:
+  runner: "tfidf_ridge"  # options: tfidf_ridge | bert_regressor
+  train_source: "gcs"    # options: gcs | bigquery
+  gcs_train_uri: "gs://<BUCKET_NAME>/data/train.csv"
+  gcs_eval_uri: "gs://<BUCKET_NAME>/data/eval.csv"
+  bq_train_query: "SELECT text, target FROM `<PROJECT_ID>.<BQ_DATASET>.<BQ_TABLE>` WHERE split='train'"
+  bq_eval_query: "SELECT text, target FROM `<PROJECT_ID>.<BQ_DATASET>.<BQ_TABLE>` WHERE split='eval'"
+  output_dir: "gs://<BUCKET_NAME>/models/weight-extractor"
+  eval_dir: "gs://<BUCKET_NAME>/evals/weight-extractor"
+
+serving:
+  endpoint_name: "weight-extractor-endpoint"
+  model_display_name: "weight-extractor"

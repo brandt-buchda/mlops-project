@@ -1,0 +1,31 @@
+# Core ML libraries (Ray-compatible versions)
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.0
+scipy==1.13.1
+joblib==1.4.2
+
+# GCP integrations
+google-cloud-storage==2.16.0
+google-cloud-bigquery==3.25.0
+google-cloud-aiplatform==1.67.0
+
+# Transformer models with GPU support
+transformers==4.43.3
+torch==2.3.1
+accelerate==0.33.0
+datasets==2.14.0
+
+# Ray ML integrations
+ray[train]==2.47.1
+ray[tune]==2.47.1
+
+# Monitoring
+evidently==0.4.38
+wandb==0.16.0
+
+# Config & API
+pyyaml==6.0.2
+fastapi==0.115.0
+uvicorn[standard]==0.30.5
+pydantic==2.8.2
