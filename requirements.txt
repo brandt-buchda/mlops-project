@@ -1,4 +1,4 @@
-# Core ML libraries (Ray-compatible versions)
+# Core ML libraries
 pandas==2.2.2
 numpy==1.26.4
 scikit-learn==1.5.0
@@ -8,17 +8,14 @@ joblib==1.4.2
 # GCP integrations
 google-cloud-storage==2.16.0
 google-cloud-bigquery==3.25.0
+google-cloud-bigquery-storage==2.25.0
 google-cloud-aiplatform==1.67.0
 
-# Transformer models with GPU support
+# Transformer models (PyTorch already in base image)
 transformers==4.43.3
-torch==2.3.1
 accelerate==0.33.0
 datasets==2.14.0
-
-# Ray ML integrations
-ray[train]==2.47.1
-ray[tune]==2.47.1
+db-dtypes
 
 # Monitoring
 evidently==0.4.38
