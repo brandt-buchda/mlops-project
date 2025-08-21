@@ -4,7 +4,7 @@ region: "us-central1"
 #bucket_uri: "gs://<BUCKET_NAME>"
 #artifact_bucket_uri: "gs://<BUCKET_NAME>/artifacts"
 bq_dataset: "gfv_dataset"
-bq_table: "gfv_data_hashed"
+bq_table: "gfv_data_hashed_training"
 service_account: "brandt.333@hotmail.com"
 #image_uri: "<REGION>-docker.pkg.dev/<PROJECT_ID>/<REPO_NAME>/weight-extractor:latest"
 

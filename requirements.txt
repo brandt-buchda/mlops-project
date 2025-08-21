@@ -18,6 +18,10 @@ datasets==2.14.0
 db-dtypes
 sentencepiece
 
+# Pipeline components
+kfp==2.8.0
+google-cloud-pipeline-components==2.16.0
+
 # Monitoring
 evidently==0.4.38
 wandb==0.16.0
