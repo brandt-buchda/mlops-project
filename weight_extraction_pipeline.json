@@ -1,0 +1,961 @@
+{
+  "components": {
+    "comp-data-preprocessing-component": {
+      "executorLabel": "exec-data-preprocessing-component",
+      "inputDefinitions": {
+        "parameters": {
+          "dataset_id": {
+            "parameterType": "STRING"
+          },
+          "project_id": {
+            "parameterType": "STRING"
+          },
+          "table_id": {
+            "parameterType": "STRING"
+          },
+          "test_split": {
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "train_split": {
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "data_stats": {
+            "artifactType": {
+              "schemaTitle": "system.Metrics",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "test_dataset": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "train_dataset": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "test_samples": {
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "total_samples": {
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "train_samples": {
+            "parameterType": "NUMBER_INTEGER"
+          }
+        }
+      }
+    },
+    "comp-model-deployment-component": {
+      "executorLabel": "exec-model-deployment-component",
+      "inputDefinitions": {
+        "artifacts": {
+          "model": {
+            "artifactType": {
+              "schemaTitle": "system.Model",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "endpoint_display_name": {
+            "parameterType": "STRING"
+          },
+          "model_display_name": {
+            "parameterType": "STRING"
+          },
+          "project_id": {
+            "parameterType": "STRING"
+          },
+          "region": {
+            "parameterType": "STRING"
+          },
+          "serving_container_image": {
+            "defaultValue": "us-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.1-13:latest",
+            "isOptional": true,
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "endpoint_info": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "endpoint_id": {
+            "parameterType": "STRING"
+          },
+          "model_resource_name": {
+            "parameterType": "STRING"
+          }
+        }
+      }
+    },
+    "comp-model-training-component": {
+      "executorLabel": "exec-model-training-component",
+      "inputDefinitions": {
+        "artifacts": {
+          "test_dataset": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "train_dataset": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "batch_size": {
+            "defaultValue": 4.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "bucket_name": {
+            "parameterType": "STRING"
+          },
+          "epochs": {
+            "defaultValue": 3.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "learning_rate": {
+            "defaultValue": 0.0003,
+            "isOptional": true,
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "max_input_length": {
+            "defaultValue": 512.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "max_target_length": {
+            "defaultValue": 64.0,
+            "isOptional": true,
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "model_name": {
+            "defaultValue": "t5-small",
+            "isOptional": true,
+            "parameterType": "STRING"
+          },
+          "project_id": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "model_output": {
+            "artifactType": {
+              "schemaTitle": "system.Model",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "training_metrics": {
+            "artifactType": {
+              "schemaTitle": "system.Metrics",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "final_loss": {
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "mape": {
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "rmse": {
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      }
+    },
+    "comp-setup-model-monitoring-component": {
+      "executorLabel": "exec-setup-model-monitoring-component",
+      "inputDefinitions": {
+        "artifacts": {
+          "endpoint_info": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "test_dataset": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "monitoring_job_display_name": {
+            "defaultValue": "weight-extraction-monitoring",
+            "isOptional": true,
+            "parameterType": "STRING"
+          },
+          "project_id": {
+            "parameterType": "STRING"
+          },
+          "region": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "monitoring_config": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "monitoring_job_id": {
+            "parameterType": "STRING"
+          },
+          "skew_threshold": {
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      }
+    },
+    "comp-test-deployed-model-component": {
+      "executorLabel": "exec-test-deployed-model-component",
+      "inputDefinitions": {
+        "artifacts": {
+          "endpoint_info": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "test_dataset": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "project_id": {
+            "parameterType": "STRING"
+          },
+          "region": {
+            "parameterType": "STRING"
+          },
+          "restrict_quantity": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "test_results": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "mape": {
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "num_samples": {
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "rmse": {
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      }
+    },
+    "comp-test-deployed-model-component-2": {
+      "executorLabel": "exec-test-deployed-model-component-2",
+      "inputDefinitions": {
+        "artifacts": {
+          "endpoint_info": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "test_dataset": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "project_id": {
+            "parameterType": "STRING"
+          },
+          "region": {
+            "parameterType": "STRING"
+          },
+          "restrict_quantity": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "test_results": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "mape": {
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "num_samples": {
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "rmse": {
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      }
+    },
+    "comp-test-deployed-model-component-3": {
+      "executorLabel": "exec-test-deployed-model-component-3",
+      "inputDefinitions": {
+        "artifacts": {
+          "endpoint_info": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          },
+          "test_dataset": {
+            "artifactType": {
+              "schemaTitle": "system.Dataset",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "project_id": {
+            "parameterType": "STRING"
+          },
+          "region": {
+            "parameterType": "STRING"
+          },
+          "restrict_quantity": {
+            "defaultValue": false,
+            "isOptional": true,
+            "parameterType": "BOOLEAN"
+          }
+        }
+      },
+      "outputDefinitions": {
+        "artifacts": {
+          "test_results": {
+            "artifactType": {
+              "schemaTitle": "system.Artifact",
+              "schemaVersion": "0.0.1"
+            }
+          }
+        },
+        "parameters": {
+          "mape": {
+            "parameterType": "NUMBER_DOUBLE"
+          },
+          "num_samples": {
+            "parameterType": "NUMBER_INTEGER"
+          },
+          "rmse": {
+            "parameterType": "NUMBER_DOUBLE"
+          }
+        }
+      }
+    }
+  },
+  "defaultPipelineRoot": "gs://mlops-466819-model-artifacts/pipeline_root",
+  "deploymentSpec": {
+    "executors": {
+      "exec-data-preprocessing-component": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "data_preprocessing_component"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.8.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'google-cloud-bigquery' 'pandas' 'numpy' 'scikit-learn' 'google-auth' 'db-dtypes' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef data_preprocessing_component(\n        project_id: str,\n        dataset_id: str,\n        table_id: str,\n        train_split: float,\n        test_split: float,\n        train_dataset: Output[Dataset],\n        test_dataset: Output[Dataset],\n        data_stats: Output[Metrics]\n) -> NamedTuple('DataStats', [('train_samples', int), ('test_samples', int), ('total_samples', int)]):\n    \"\"\"Preprocess data and split into train/test sets\"\"\"\n    import pandas as pd\n    from google.cloud import bigquery\n    import json\n    from collections import namedtuple\n    import os\n\n    print(f\"Starting preprocessing with project_id: {project_id}\")\n    print(f\"Dataset: {dataset_id}, Table: {table_id}\")\n\n    try:\n        # Initialize BigQuery client with explicit project\n        client = bigquery.Client(project=project_id)\n\n        # Test client authentication\n        print(f\"BigQuery client initialized for project: {client.project}\")\n\n        # Construct the full table reference\n        full_table_id = f\"{project_id}.{dataset_id}.{table_id}\"\n\n        # Query to get training data\n        query = f\"\"\"\n            SELECT \n                name,\n                variant,\n                description,\n                weight,\n                extracted_weight,\n                extracted_quantity,\n                extraction_method,\n                target,\n                target_text\n            FROM `{full_table_id}` \n            WHERE target IS NOT NULL \n            AND target_text IS NOT NULL\n            AND target > 0\n            ORDER BY RAND()\n            LIMIT 10000\n        \"\"\"\n\n        print(f\"Executing query on table: {full_table_id}\")\n        print(f\"Query: {query}\")\n\n        # Execute query with error handling\n        query_job = client.query(query)\n        df = query_job.to_dataframe()\n\n        print(f\"Successfully loaded {len(df)} samples from BigQuery\")\n\n        if len(df) == 0:\n            raise ValueError(f\"No data found in table {full_table_id}\")\n\n        # Split data\n        train_size = int(train_split * len(df))\n        test_size = len(df) - train_size\n\n        train_df = df.iloc[:train_size]\n        test_df = df.iloc[train_size:]\n\n        print(f\"Data split: {len(train_df)} train, {len(test_df)} test\")\n\n        # Save datasets\n        train_df.to_csv(train_dataset.path, index=False)\n        test_df.to_csv(test_dataset.path, index=False)\n\n        # Create data statistics\n        stats = {\n            'total_samples': len(df),\n            'train_samples': len(train_df),\n            'test_samples': len(test_df),\n            'target_weight_min': float(df['target'].min()),\n            'target_weight_max': float(df['target'].max()),\n            'target_weight_mean': float(df['target'].mean()),\n            'unique_target_texts': int(df['target_text'].nunique()),\n            'table_accessed': full_table_id\n        }\n\n        with open(data_stats.path, 'w') as f:\n            json.dump(stats, f)\n\n        print(\"\u2705 Preprocessing completed successfully\")\n\n        DataStats = namedtuple('DataStats', ['train_samples', 'test_samples', 'total_samples'])\n        return DataStats(len(train_df), len(test_df), len(df))\n\n    except Exception as e:\n        print(f\"\u274c Error in preprocessing: {str(e)}\")\n        print(f\"Error type: {type(e).__name__}\")\n\n        # Print additional debug info\n        print(f\"Project ID: {project_id}\")\n        print(f\"Expected table: {project_id}.{dataset_id}.{table_id}\")\n\n        # Re-raise the error with more context\n        raise Exception(f\"BigQuery access failed: {str(e)}\")\n\n"
+          ],
+          "image": "python:3.9"
+        }
+      },
+      "exec-model-deployment-component": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "model_deployment_component"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.8.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'google-cloud-aiplatform' 'google-cloud-storage' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef model_deployment_component(\n        model: Input[Model],\n        endpoint_info: Output[Artifact],\n        project_id: str,\n        region: str,\n        endpoint_display_name: str,\n        model_display_name: str,\n        serving_container_image: str = \"us-docker.pkg.dev/vertex-ai/prediction/pytorch-gpu.1-13:latest\"\n) -> NamedTuple('DeploymentInfo', [('endpoint_id', str), ('model_resource_name', str)]):\n    \"\"\"Deploy trained model to Vertex AI endpoint\"\"\"\n    from google.cloud import aiplatform\n    import json\n    from collections import namedtuple\n\n    # Initialize Vertex AI\n    aiplatform.init(project=project_id, location=region)\n\n    # Upload model to Vertex AI Model Registry\n    uploaded_model = aiplatform.Model.upload(\n        display_name=model_display_name,\n        artifact_uri=model.path,\n        serving_container_image_uri=serving_container_image,\n        serving_container_predict_route=\"/predict\",\n        serving_container_health_route=\"/health\",\n        description=\"T5 Weight Extraction Model\"\n    )\n\n    print(f\"Model uploaded: {uploaded_model.resource_name}\")\n\n    # Create endpoint\n    endpoint = aiplatform.Endpoint.create(display_name=endpoint_display_name)\n    print(f\"Endpoint created: {endpoint.resource_name}\")\n\n    # Deploy model to endpoint\n    deployed_model = endpoint.deploy(\n        model=uploaded_model,\n        machine_type=\"n1-standard-4\",\n        accelerator_type=\"NVIDIA_TESLA_T4\",\n        accelerator_count=1,\n        min_replica_count=1,\n        max_replica_count=3,\n        traffic_split={\"0\": 100}\n    )\n\n    # Save endpoint information\n    endpoint_data = {\n        'endpoint_id': endpoint.resource_name.split('/')[-1],\n        'endpoint_resource_name': endpoint.resource_name,\n        'model_resource_name': uploaded_model.resource_name,\n        'endpoint_display_name': endpoint_display_name\n    }\n\n    with open(endpoint_info.path, 'w') as f:\n        json.dump(endpoint_data, f)\n\n    print(f\"Model deployed successfully to endpoint: {endpoint.resource_name}\")\n\n    DeploymentInfo = namedtuple('DeploymentInfo', ['endpoint_id', 'model_resource_name'])\n    return DeploymentInfo(endpoint.resource_name.split('/')[-1], uploaded_model.resource_name)\n\n"
+          ],
+          "image": "python:3.9"
+        }
+      },
+      "exec-model-training-component": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "model_training_component"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.8.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'transformers==4.30.0' 'google-cloud-bigquery' 'google-cloud-storage' 'pandas' 'numpy' 'scikit-learn' 'tqdm' 'pyyaml' 'sentencepiece' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef model_training_component(\n        train_dataset: Input[Dataset],\n        test_dataset: Input[Dataset],\n        model_output: Output[Model],\n        training_metrics: Output[Metrics],\n        project_id: str,\n        bucket_name: str,\n        model_name: str = \"t5-small\",\n        epochs: int = 3,\n        batch_size: int = 4,\n        learning_rate: float = 3e-4,\n        max_input_length: int = 512,\n        max_target_length: int = 64\n) -> NamedTuple('TrainingResults', [('final_loss', float), ('rmse', float), ('mape', float)]):\n    \"\"\"Train T5 model for weight extraction\"\"\"\n    import torch\n    import torch.nn as nn\n    from torch.utils.data import Dataset, DataLoader\n    from transformers import T5ForConditionalGeneration, T5Tokenizer, AdamW\n    import pandas as pd\n    import numpy as np\n    import json\n    import re\n    import os\n    from collections import namedtuple\n    from tqdm import tqdm\n\n    # Custom Dataset class\n    class WeightExtractionDataset(Dataset):\n        def __init__(self, data_df, tokenizer, max_input_length=512, max_target_length=64):\n            self.data = data_df.reset_index(drop=True)\n            self.tokenizer = tokenizer\n            self.max_input_length = max_input_length\n            self.max_target_length = max_target_length\n\n        def __len__(self):\n            return len(self.data)\n\n        def __getitem__(self, idx):\n            row = self.data.iloc[idx]\n\n            # Create input text\n            input_parts = [\"Extract weight:\"]\n            if pd.notna(row.get('name', '')) and row['name']:\n                input_parts.append(f\"name: {row['name']}\")\n            if pd.notna(row.get('variant', '')) and row['variant']:\n                input_parts.append(f\"variant: {row['variant']}\")\n            if pd.notna(row.get('description', '')) and row['description']:\n                desc = str(row['description'])[:300] + \"...\" if len(str(row['description'])) > 300 else str(\n                    row['description'])\n                input_parts.append(f\"description: {desc}\")\n            if pd.notna(row.get('weight', '')) and row['weight']:\n                input_parts.append(f\"weight: {row['weight']}\")\n\n            input_text = \" \".join(input_parts)\n            target_text = row['target_text']\n\n            # Tokenize\n            input_encoding = self.tokenizer(\n                input_text,\n                truncation=True,\n                padding='max_length',\n                max_length=self.max_input_length,\n                return_tensors='pt'\n            )\n\n            target_encoding = self.tokenizer(\n                target_text,\n                truncation=True,\n                padding='max_length',\n                max_length=self.max_target_length,\n                return_tensors='pt'\n            )\n\n            labels = target_encoding['input_ids'].clone()\n            labels[labels == self.tokenizer.pad_token_id] = -100\n\n            return {\n                'input_ids': input_encoding['input_ids'].flatten(),\n                'attention_mask': input_encoding['attention_mask'].flatten(),\n                'labels': labels.flatten(),\n                'target_text': target_text,\n                'target_weight': float(row['target'])\n            }\n\n    def parse_target_text(text: str):\n        \"\"\"Parse target_text to extract weight\"\"\"\n        try:\n            text = str(text).strip().lower()\n            pattern = r'(\\d+(?:\\.\\d+)?)\\s*x\\s*(\\d+(?:\\.\\d+)?)\\s*lbs?'\n            match = re.search(pattern, text)\n            if match:\n                quantity = float(match.group(1))\n                individual_weight = float(match.group(2))\n                return individual_weight * quantity\n\n            pattern_simple = r'(\\d+(?:\\.\\d+)?)\\s*lbs?'\n            match_simple = re.search(pattern_simple, text)\n            if match_simple:\n                return float(match_simple.group(1))\n            return None\n        except (ValueError, AttributeError):\n            return None\n\n    def calculate_metrics(predictions, targets, target_weights):\n        \"\"\"Calculate MAPE and RMSE\"\"\"\n        valid_predictions = []\n        valid_targets = []\n\n        for pred, target_weight in zip(predictions, target_weights):\n            pred_weight = parse_target_text(pred)\n            if pred_weight is not None:\n                valid_predictions.append(pred_weight)\n                valid_targets.append(target_weight)\n\n        if len(valid_predictions) == 0:\n            return float('inf'), float('inf')\n\n        valid_predictions = np.array(valid_predictions)\n        valid_targets = np.array(valid_targets)\n\n        # RMSE\n        rmse = np.sqrt(np.mean((valid_predictions - valid_targets) ** 2))\n\n        # MAPE (avoiding division by zero)\n        mape = np.mean(np.abs((valid_targets - valid_predictions) / np.maximum(valid_targets, 1e-8))) * 100\n\n        return rmse, mape\n\n    # Load datasets\n    train_df = pd.read_csv(train_dataset.path)\n    test_df = pd.read_csv(test_dataset.path)\n\n    print(f\"Training samples: {len(train_df)}\")\n    print(f\"Test samples: {len(test_df)}\")\n\n    # Initialize model and tokenizer\n    tokenizer = T5Tokenizer.from_pretrained(model_name)\n    model = T5ForConditionalGeneration.from_pretrained(model_name)\n\n    # Setup device\n    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\n    model.to(device)\n    print(f\"Using device: {device}\")\n\n    # Create datasets and dataloaders\n    train_dataset_obj = WeightExtractionDataset(train_df, tokenizer, max_input_length, max_target_length)\n    test_dataset_obj = WeightExtractionDataset(test_df, tokenizer, max_input_length, max_target_length)\n\n    train_dataloader = DataLoader(train_dataset_obj, batch_size=batch_size, shuffle=True, num_workers=0)\n    test_dataloader = DataLoader(test_dataset_obj, batch_size=batch_size, shuffle=False, num_workers=0)\n\n    # Training setup\n    optimizer = AdamW(model.parameters(), lr=learning_rate)\n\n    # Training loop\n    model.train()\n    final_loss = 0\n\n    for epoch in range(epochs):\n        epoch_loss = 0\n        num_batches = 0\n\n        for batch in tqdm(train_dataloader, desc=f\"Epoch {epoch + 1}\"):\n            input_ids = batch['input_ids'].to(device)\n            attention_mask = batch['attention_mask'].to(device)\n            labels = batch['labels'].to(device)\n\n            optimizer.zero_grad()\n            outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)\n            loss = outputs.loss\n            loss.backward()\n            optimizer.step()\n\n            epoch_loss += loss.item()\n            num_batches += 1\n\n        avg_loss = epoch_loss / num_batches\n        final_loss = avg_loss\n        print(f\"Epoch {epoch + 1}/{epochs}, Average Loss: {avg_loss:.4f}\")\n\n    # Evaluation on test set\n    model.eval()\n    predictions = []\n    targets = []\n    target_weights = []\n\n    with torch.no_grad():\n        for batch in tqdm(test_dataloader, desc=\"Evaluating\"):\n            input_ids = batch['input_ids'].to(device)\n            attention_mask = batch['attention_mask'].to(device)\n\n            generated_ids = model.generate(\n                input_ids=input_ids,\n                attention_mask=attention_mask,\n                max_length=max_target_length,\n                num_beams=2,\n                do_sample=False,\n                early_stopping=True\n            )\n\n            batch_predictions = [tokenizer.decode(ids, skip_special_tokens=True) for ids in generated_ids]\n            predictions.extend(batch_predictions)\n            targets.extend(batch['target_text'])\n            target_weights.extend([float(w) for w in batch['target_weight']])\n\n    # Calculate metrics\n    rmse, mape = calculate_metrics(predictions, targets, target_weights)\n\n    # Save model\n    model.save_pretrained(model_output.path)\n    tokenizer.save_pretrained(model_output.path)\n\n    # Save metrics\n    metrics_data = {\n        'final_loss': final_loss,\n        'rmse': rmse,\n        'mape': mape,\n        'sample_predictions': predictions[:5],\n        'sample_targets': targets[:5]\n    }\n\n    with open(training_metrics.path, 'w') as f:\n        json.dump(metrics_data, f)\n\n    print(f\"Training completed. Final Loss: {final_loss:.4f}, RMSE: {rmse:.4f}, MAPE: {mape:.2f}%\")\n\n    TrainingResults = namedtuple('TrainingResults', ['final_loss', 'rmse', 'mape'])\n    return TrainingResults(final_loss, rmse, mape)\n\n"
+          ],
+          "image": "pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel",
+          "resources": {
+            "accelerator": {
+              "count": "1",
+              "type": "NVIDIA_TESLA_T4"
+            },
+            "cpuLimit": 4.0,
+            "memoryLimit": 16.0
+          }
+        }
+      },
+      "exec-setup-model-monitoring-component": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "setup_model_monitoring_component"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.8.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'google-cloud-aiplatform' 'google-cloud-monitoring' 'pandas' 'numpy' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef setup_model_monitoring_component(\n        endpoint_info: Input[Artifact],\n        test_dataset: Input[Dataset],\n        monitoring_config: Output[Artifact],\n        project_id: str,\n        region: str,\n        monitoring_job_display_name: str = \"weight-extraction-monitoring\"\n) -> NamedTuple('MonitoringInfo', [('monitoring_job_id', str), ('skew_threshold', float)]):\n    \"\"\"Setup model monitoring for the deployed model\"\"\"\n    from google.cloud import aiplatform\n    import json\n    import pandas as pd\n    from collections import namedtuple\n\n    # Initialize Vertex AI\n    aiplatform.init(project=project_id, location=region)\n\n    # Load endpoint info\n    with open(endpoint_info.path, 'r') as f:\n        endpoint_data = json.load(f)\n\n    endpoint = aiplatform.Endpoint(endpoint_data['endpoint_resource_name'])\n\n    # Load test dataset for baseline\n    test_df = pd.read_csv(test_dataset.path)\n\n    # Create monitoring job configuration\n    monitoring_config_data = {\n        'project_id': project_id,\n        'endpoint_resource_name': endpoint_data['endpoint_resource_name'],\n        'model_resource_name': endpoint_data['model_resource_name'],\n        'monitoring_job_display_name': monitoring_job_display_name,\n        'skew_threshold': 0.3,  # Threshold for data drift detection\n        'drift_threshold': 0.3,  # Threshold for prediction drift\n        'sampling_rate': 1.0,  # Sample 100% of predictions\n        'baseline_dataset_size': len(test_df),\n        'monitoring_enabled': True,\n        'alert_config': {\n            'email_alert_config': {\n                'user_emails': []  # Add emails for alerts\n            }\n        }\n    }\n\n    # Save monitoring configuration\n    with open(monitoring_config.path, 'w') as f:\n        json.dump(monitoring_config_data, f, indent=2)\n\n    print(\"Model monitoring configuration created\")\n    print(f\"Monitoring will track data drift with threshold: {monitoring_config_data['skew_threshold']}\")\n\n    MonitoringInfo = namedtuple('MonitoringInfo', ['monitoring_job_id', 'skew_threshold'])\n    return MonitoringInfo(\"mock-monitoring-job-id\", 0.3)\n\n"
+          ],
+          "image": "python:3.9"
+        }
+      },
+      "exec-test-deployed-model-component": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "test_deployed_model_component"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.8.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'google-cloud-aiplatform' 'pandas' 'numpy' 'scikit-learn' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef test_deployed_model_component(\n        endpoint_info: Input[Artifact],\n        test_dataset: Input[Dataset],\n        test_results: Output[Artifact],\n        project_id: str,\n        region: str,\n        restrict_quantity: bool = False\n) -> NamedTuple('TestResults', [('rmse', float), ('mape', float), ('num_samples', int)]):\n    \"\"\"Test the deployed model with test data\"\"\"\n    import json\n    import pandas as pd\n    import numpy as np\n    from google.cloud import aiplatform\n    from collections import namedtuple\n    import re\n\n    def parse_prediction(text: str):\n        \"\"\"Parse prediction to extract weight\"\"\"\n        try:\n            text = str(text).strip().lower()\n            pattern = r'(\\d+(?:\\.\\d+)?)\\s*x\\s*(\\d+(?:\\.\\d+)?)\\s*lbs?'\n            match = re.search(pattern, text)\n            if match:\n                quantity = float(match.group(1))\n                individual_weight = float(match.group(2))\n                return individual_weight * quantity\n\n            pattern_simple = r'(\\d+(?:\\.\\d+)?)\\s*lbs?'\n            match_simple = re.search(pattern_simple, text)\n            if match_simple:\n                return float(match_simple.group(1))\n            return None\n        except (ValueError, AttributeError):\n            return None\n\n    # Initialize Vertex AI\n    aiplatform.init(project=project_id, location=region)\n\n    # Load endpoint info\n    with open(endpoint_info.path, 'r') as f:\n        endpoint_data = json.load(f)\n\n    endpoint = aiplatform.Endpoint(endpoint_data['endpoint_resource_name'])\n\n    # Load test dataset\n    test_df = pd.read_csv(test_dataset.path)\n\n    # Restrict dataset if requested (for drift testing)\n    if restrict_quantity:\n        # Filter to products with quantity = 1 only\n        test_df = test_df[test_df['target_text'].str.contains('1 x', na=False)]\n        print(f\"Restricted dataset to quantity=1 products: {len(test_df)} samples\")\n\n    # Prepare test instances\n    test_instances = []\n    for _, row in test_df.iterrows():\n        input_parts = [\"Extract weight:\"]\n        if pd.notna(row.get('name', '')) and row['name']:\n            input_parts.append(f\"name: {row['name']}\")\n        if pd.notna(row.get('variant', '')) and row['variant']:\n            input_parts.append(f\"variant: {row['variant']}\")\n        if pd.notna(row.get('description', '')) and row['description']:\n            desc = str(row['description'])[:300] + \"...\" if len(str(row['description'])) > 300 else str(\n                row['description'])\n            input_parts.append(f\"description: {desc}\")\n        if pd.notna(row.get('weight', '')) and row['weight']:\n            input_parts.append(f\"weight: {row['weight']}\")\n\n        test_instances.append({\"input_text\": \" \".join(input_parts)})\n\n    # Get predictions in batches\n    batch_size = 10\n    all_predictions = []\n\n    for i in range(0, len(test_instances), batch_size):\n        batch = test_instances[i:i + batch_size]\n        try:\n            predictions = endpoint.predict(instances=batch)\n            all_predictions.extend(predictions.predictions)\n        except Exception as e:\n            print(f\"Prediction error for batch {i // batch_size}: {e}\")\n            # Add dummy predictions for failed batch\n            all_predictions.extend([\"0 lbs\"] * len(batch))\n\n    # Calculate metrics\n    predicted_weights = []\n    true_weights = []\n\n    for pred, true_weight in zip(all_predictions, test_df['target'].values):\n        pred_weight = parse_prediction(str(pred))\n        if pred_weight is not None:\n            predicted_weights.append(pred_weight)\n            true_weights.append(true_weight)\n\n    if len(predicted_weights) > 0:\n        predicted_weights = np.array(predicted_weights)\n        true_weights = np.array(true_weights)\n\n        # Calculate RMSE and MAPE\n        rmse = np.sqrt(np.mean((predicted_weights - true_weights) ** 2))\n        mape = np.mean(np.abs((true_weights - predicted_weights) / np.maximum(true_weights, 1e-8))) * 100\n    else:\n        rmse = float('inf')\n        mape = float('inf')\n\n    # Save test results\n    results_data = {\n        'rmse': rmse,\n        'mape': mape,\n        'num_samples': len(predicted_weights),\n        'total_test_samples': len(test_df),\n        'parsing_success_rate': len(predicted_weights) / len(test_df) if len(test_df) > 0 else 0,\n        'restricted_quantity': restrict_quantity,\n        'sample_predictions': all_predictions[:5],\n        'sample_true_values': test_df['target'].head().tolist()\n    }\n\n    with open(test_results.path, 'w') as f:\n        json.dump(results_data, f, indent=2)\n\n    print(f\"Testing completed:\")\n    print(f\"RMSE: {rmse:.4f}\")\n    print(f\"MAPE: {mape:.2f}%\")\n    print(f\"Samples tested: {len(predicted_weights)}/{len(test_df)}\")\n\n    TestResults = namedtuple('TestResults', ['rmse', 'mape', 'num_samples'])\n    return TestResults(rmse, mape, len(predicted_weights))\n\n"
+          ],
+          "image": "python:3.9"
+        }
+      },
+      "exec-test-deployed-model-component-2": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "test_deployed_model_component"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.8.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'google-cloud-aiplatform' 'pandas' 'numpy' 'scikit-learn' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef test_deployed_model_component(\n        endpoint_info: Input[Artifact],\n        test_dataset: Input[Dataset],\n        test_results: Output[Artifact],\n        project_id: str,\n        region: str,\n        restrict_quantity: bool = False\n) -> NamedTuple('TestResults', [('rmse', float), ('mape', float), ('num_samples', int)]):\n    \"\"\"Test the deployed model with test data\"\"\"\n    import json\n    import pandas as pd\n    import numpy as np\n    from google.cloud import aiplatform\n    from collections import namedtuple\n    import re\n\n    def parse_prediction(text: str):\n        \"\"\"Parse prediction to extract weight\"\"\"\n        try:\n            text = str(text).strip().lower()\n            pattern = r'(\\d+(?:\\.\\d+)?)\\s*x\\s*(\\d+(?:\\.\\d+)?)\\s*lbs?'\n            match = re.search(pattern, text)\n            if match:\n                quantity = float(match.group(1))\n                individual_weight = float(match.group(2))\n                return individual_weight * quantity\n\n            pattern_simple = r'(\\d+(?:\\.\\d+)?)\\s*lbs?'\n            match_simple = re.search(pattern_simple, text)\n            if match_simple:\n                return float(match_simple.group(1))\n            return None\n        except (ValueError, AttributeError):\n            return None\n\n    # Initialize Vertex AI\n    aiplatform.init(project=project_id, location=region)\n\n    # Load endpoint info\n    with open(endpoint_info.path, 'r') as f:\n        endpoint_data = json.load(f)\n\n    endpoint = aiplatform.Endpoint(endpoint_data['endpoint_resource_name'])\n\n    # Load test dataset\n    test_df = pd.read_csv(test_dataset.path)\n\n    # Restrict dataset if requested (for drift testing)\n    if restrict_quantity:\n        # Filter to products with quantity = 1 only\n        test_df = test_df[test_df['target_text'].str.contains('1 x', na=False)]\n        print(f\"Restricted dataset to quantity=1 products: {len(test_df)} samples\")\n\n    # Prepare test instances\n    test_instances = []\n    for _, row in test_df.iterrows():\n        input_parts = [\"Extract weight:\"]\n        if pd.notna(row.get('name', '')) and row['name']:\n            input_parts.append(f\"name: {row['name']}\")\n        if pd.notna(row.get('variant', '')) and row['variant']:\n            input_parts.append(f\"variant: {row['variant']}\")\n        if pd.notna(row.get('description', '')) and row['description']:\n            desc = str(row['description'])[:300] + \"...\" if len(str(row['description'])) > 300 else str(\n                row['description'])\n            input_parts.append(f\"description: {desc}\")\n        if pd.notna(row.get('weight', '')) and row['weight']:\n            input_parts.append(f\"weight: {row['weight']}\")\n\n        test_instances.append({\"input_text\": \" \".join(input_parts)})\n\n    # Get predictions in batches\n    batch_size = 10\n    all_predictions = []\n\n    for i in range(0, len(test_instances), batch_size):\n        batch = test_instances[i:i + batch_size]\n        try:\n            predictions = endpoint.predict(instances=batch)\n            all_predictions.extend(predictions.predictions)\n        except Exception as e:\n            print(f\"Prediction error for batch {i // batch_size}: {e}\")\n            # Add dummy predictions for failed batch\n            all_predictions.extend([\"0 lbs\"] * len(batch))\n\n    # Calculate metrics\n    predicted_weights = []\n    true_weights = []\n\n    for pred, true_weight in zip(all_predictions, test_df['target'].values):\n        pred_weight = parse_prediction(str(pred))\n        if pred_weight is not None:\n            predicted_weights.append(pred_weight)\n            true_weights.append(true_weight)\n\n    if len(predicted_weights) > 0:\n        predicted_weights = np.array(predicted_weights)\n        true_weights = np.array(true_weights)\n\n        # Calculate RMSE and MAPE\n        rmse = np.sqrt(np.mean((predicted_weights - true_weights) ** 2))\n        mape = np.mean(np.abs((true_weights - predicted_weights) / np.maximum(true_weights, 1e-8))) * 100\n    else:\n        rmse = float('inf')\n        mape = float('inf')\n\n    # Save test results\n    results_data = {\n        'rmse': rmse,\n        'mape': mape,\n        'num_samples': len(predicted_weights),\n        'total_test_samples': len(test_df),\n        'parsing_success_rate': len(predicted_weights) / len(test_df) if len(test_df) > 0 else 0,\n        'restricted_quantity': restrict_quantity,\n        'sample_predictions': all_predictions[:5],\n        'sample_true_values': test_df['target'].head().tolist()\n    }\n\n    with open(test_results.path, 'w') as f:\n        json.dump(results_data, f, indent=2)\n\n    print(f\"Testing completed:\")\n    print(f\"RMSE: {rmse:.4f}\")\n    print(f\"MAPE: {mape:.2f}%\")\n    print(f\"Samples tested: {len(predicted_weights)}/{len(test_df)}\")\n\n    TestResults = namedtuple('TestResults', ['rmse', 'mape', 'num_samples'])\n    return TestResults(rmse, mape, len(predicted_weights))\n\n"
+          ],
+          "image": "python:3.9"
+        }
+      },
+      "exec-test-deployed-model-component-3": {
+        "container": {
+          "args": [
+            "--executor_input",
+            "{{$}}",
+            "--function_to_execute",
+            "test_deployed_model_component"
+          ],
+          "command": [
+            "sh",
+            "-c",
+            "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.8.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'google-cloud-aiplatform' 'pandas' 'numpy' 'scikit-learn' && \"$0\" \"$@\"\n",
+            "sh",
+            "-ec",
+            "program_path=$(mktemp -d)\n\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\n_KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+            "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef test_deployed_model_component(\n        endpoint_info: Input[Artifact],\n        test_dataset: Input[Dataset],\n        test_results: Output[Artifact],\n        project_id: str,\n        region: str,\n        restrict_quantity: bool = False\n) -> NamedTuple('TestResults', [('rmse', float), ('mape', float), ('num_samples', int)]):\n    \"\"\"Test the deployed model with test data\"\"\"\n    import json\n    import pandas as pd\n    import numpy as np\n    from google.cloud import aiplatform\n    from collections import namedtuple\n    import re\n\n    def parse_prediction(text: str):\n        \"\"\"Parse prediction to extract weight\"\"\"\n        try:\n            text = str(text).strip().lower()\n            pattern = r'(\\d+(?:\\.\\d+)?)\\s*x\\s*(\\d+(?:\\.\\d+)?)\\s*lbs?'\n            match = re.search(pattern, text)\n            if match:\n                quantity = float(match.group(1))\n                individual_weight = float(match.group(2))\n                return individual_weight * quantity\n\n            pattern_simple = r'(\\d+(?:\\.\\d+)?)\\s*lbs?'\n            match_simple = re.search(pattern_simple, text)\n            if match_simple:\n                return float(match_simple.group(1))\n            return None\n        except (ValueError, AttributeError):\n            return None\n\n    # Initialize Vertex AI\n    aiplatform.init(project=project_id, location=region)\n\n    # Load endpoint info\n    with open(endpoint_info.path, 'r') as f:\n        endpoint_data = json.load(f)\n\n    endpoint = aiplatform.Endpoint(endpoint_data['endpoint_resource_name'])\n\n    # Load test dataset\n    test_df = pd.read_csv(test_dataset.path)\n\n    # Restrict dataset if requested (for drift testing)\n    if restrict_quantity:\n        # Filter to products with quantity = 1 only\n        test_df = test_df[test_df['target_text'].str.contains('1 x', na=False)]\n        print(f\"Restricted dataset to quantity=1 products: {len(test_df)} samples\")\n\n    # Prepare test instances\n    test_instances = []\n    for _, row in test_df.iterrows():\n        input_parts = [\"Extract weight:\"]\n        if pd.notna(row.get('name', '')) and row['name']:\n            input_parts.append(f\"name: {row['name']}\")\n        if pd.notna(row.get('variant', '')) and row['variant']:\n            input_parts.append(f\"variant: {row['variant']}\")\n        if pd.notna(row.get('description', '')) and row['description']:\n            desc = str(row['description'])[:300] + \"...\" if len(str(row['description'])) > 300 else str(\n                row['description'])\n            input_parts.append(f\"description: {desc}\")\n        if pd.notna(row.get('weight', '')) and row['weight']:\n            input_parts.append(f\"weight: {row['weight']}\")\n\n        test_instances.append({\"input_text\": \" \".join(input_parts)})\n\n    # Get predictions in batches\n    batch_size = 10\n    all_predictions = []\n\n    for i in range(0, len(test_instances), batch_size):\n        batch = test_instances[i:i + batch_size]\n        try:\n            predictions = endpoint.predict(instances=batch)\n            all_predictions.extend(predictions.predictions)\n        except Exception as e:\n            print(f\"Prediction error for batch {i // batch_size}: {e}\")\n            # Add dummy predictions for failed batch\n            all_predictions.extend([\"0 lbs\"] * len(batch))\n\n    # Calculate metrics\n    predicted_weights = []\n    true_weights = []\n\n    for pred, true_weight in zip(all_predictions, test_df['target'].values):\n        pred_weight = parse_prediction(str(pred))\n        if pred_weight is not None:\n            predicted_weights.append(pred_weight)\n            true_weights.append(true_weight)\n\n    if len(predicted_weights) > 0:\n        predicted_weights = np.array(predicted_weights)\n        true_weights = np.array(true_weights)\n\n        # Calculate RMSE and MAPE\n        rmse = np.sqrt(np.mean((predicted_weights - true_weights) ** 2))\n        mape = np.mean(np.abs((true_weights - predicted_weights) / np.maximum(true_weights, 1e-8))) * 100\n    else:\n        rmse = float('inf')\n        mape = float('inf')\n\n    # Save test results\n    results_data = {\n        'rmse': rmse,\n        'mape': mape,\n        'num_samples': len(predicted_weights),\n        'total_test_samples': len(test_df),\n        'parsing_success_rate': len(predicted_weights) / len(test_df) if len(test_df) > 0 else 0,\n        'restricted_quantity': restrict_quantity,\n        'sample_predictions': all_predictions[:5],\n        'sample_true_values': test_df['target'].head().tolist()\n    }\n\n    with open(test_results.path, 'w') as f:\n        json.dump(results_data, f, indent=2)\n\n    print(f\"Testing completed:\")\n    print(f\"RMSE: {rmse:.4f}\")\n    print(f\"MAPE: {mape:.2f}%\")\n    print(f\"Samples tested: {len(predicted_weights)}/{len(test_df)}\")\n\n    TestResults = namedtuple('TestResults', ['rmse', 'mape', 'num_samples'])\n    return TestResults(rmse, mape, len(predicted_weights))\n\n"
+          ],
+          "image": "python:3.9"
+        }
+      }
+    }
+  },
+  "pipelineInfo": {
+    "description": "Complete MLOps pipeline for T5 weight extraction model with enhanced monitoring",
+    "name": "weight-extraction-t5-pipeline"
+  },
+  "root": {
+    "dag": {
+      "outputs": {
+        "artifacts": {
+          "data-preprocessing-component-data_stats": {
+            "artifactSelectors": [
+              {
+                "outputArtifactKey": "data_stats",
+                "producerSubtask": "data-preprocessing-component"
+              }
+            ]
+          },
+          "model-training-component-training_metrics": {
+            "artifactSelectors": [
+              {
+                "outputArtifactKey": "training_metrics",
+                "producerSubtask": "model-training-component"
+              }
+            ]
+          }
+        }
+      },
+      "tasks": {
+        "data-preprocessing-component": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-data-preprocessing-component"
+          },
+          "inputs": {
+            "parameters": {
+              "dataset_id": {
+                "componentInputParameter": "dataset_id"
+              },
+              "project_id": {
+                "componentInputParameter": "project_id"
+              },
+              "table_id": {
+                "componentInputParameter": "table_id"
+              },
+              "test_split": {
+                "componentInputParameter": "test_split"
+              },
+              "train_split": {
+                "componentInputParameter": "train_split"
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "data-preprocessing-component"
+          }
+        },
+        "model-deployment-component": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-model-deployment-component"
+          },
+          "dependentTasks": [
+            "model-training-component"
+          ],
+          "inputs": {
+            "artifacts": {
+              "model": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "model_output",
+                  "producerTask": "model-training-component"
+                }
+              }
+            },
+            "parameters": {
+              "endpoint_display_name": {
+                "componentInputParameter": "endpoint_display_name"
+              },
+              "model_display_name": {
+                "componentInputParameter": "model_display_name"
+              },
+              "project_id": {
+                "componentInputParameter": "project_id"
+              },
+              "region": {
+                "componentInputParameter": "region"
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "model-deployment-component"
+          }
+        },
+        "model-training-component": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-model-training-component"
+          },
+          "dependentTasks": [
+            "data-preprocessing-component"
+          ],
+          "inputs": {
+            "artifacts": {
+              "test_dataset": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "test_dataset",
+                  "producerTask": "data-preprocessing-component"
+                }
+              },
+              "train_dataset": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "train_dataset",
+                  "producerTask": "data-preprocessing-component"
+                }
+              }
+            },
+            "parameters": {
+              "batch_size": {
+                "componentInputParameter": "batch_size"
+              },
+              "bucket_name": {
+                "componentInputParameter": "bucket_name"
+              },
+              "epochs": {
+                "componentInputParameter": "epochs"
+              },
+              "learning_rate": {
+                "componentInputParameter": "learning_rate"
+              },
+              "model_name": {
+                "componentInputParameter": "model_name"
+              },
+              "project_id": {
+                "componentInputParameter": "project_id"
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "model-training-component"
+          }
+        },
+        "setup-model-monitoring-component": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-setup-model-monitoring-component"
+          },
+          "dependentTasks": [
+            "data-preprocessing-component",
+            "model-deployment-component"
+          ],
+          "inputs": {
+            "artifacts": {
+              "endpoint_info": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "endpoint_info",
+                  "producerTask": "model-deployment-component"
+                }
+              },
+              "test_dataset": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "test_dataset",
+                  "producerTask": "data-preprocessing-component"
+                }
+              }
+            },
+            "parameters": {
+              "project_id": {
+                "componentInputParameter": "project_id"
+              },
+              "region": {
+                "componentInputParameter": "region"
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "setup-model-monitoring-component"
+          }
+        },
+        "test-deployed-model-component": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-test-deployed-model-component"
+          },
+          "dependentTasks": [
+            "data-preprocessing-component",
+            "model-deployment-component"
+          ],
+          "inputs": {
+            "artifacts": {
+              "endpoint_info": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "endpoint_info",
+                  "producerTask": "model-deployment-component"
+                }
+              },
+              "test_dataset": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "test_dataset",
+                  "producerTask": "data-preprocessing-component"
+                }
+              }
+            },
+            "parameters": {
+              "project_id": {
+                "componentInputParameter": "project_id"
+              },
+              "region": {
+                "componentInputParameter": "region"
+              },
+              "restrict_quantity": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "Test Model - Original Data"
+          }
+        },
+        "test-deployed-model-component-2": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-test-deployed-model-component-2"
+          },
+          "dependentTasks": [
+            "data-preprocessing-component",
+            "model-deployment-component"
+          ],
+          "inputs": {
+            "artifacts": {
+              "endpoint_info": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "endpoint_info",
+                  "producerTask": "model-deployment-component"
+                }
+              },
+              "test_dataset": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "test_dataset",
+                  "producerTask": "data-preprocessing-component"
+                }
+              }
+            },
+            "parameters": {
+              "project_id": {
+                "componentInputParameter": "project_id"
+              },
+              "region": {
+                "componentInputParameter": "region"
+              },
+              "restrict_quantity": {
+                "runtimeValue": {
+                  "constant": true
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "Test Model - Quantity Restricted (Drift Test)"
+          }
+        },
+        "test-deployed-model-component-3": {
+          "cachingOptions": {
+            "enableCache": true
+          },
+          "componentRef": {
+            "name": "comp-test-deployed-model-component-3"
+          },
+          "dependentTasks": [
+            "data-preprocessing-component",
+            "model-deployment-component"
+          ],
+          "inputs": {
+            "artifacts": {
+              "endpoint_info": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "endpoint_info",
+                  "producerTask": "model-deployment-component"
+                }
+              },
+              "test_dataset": {
+                "taskOutputArtifact": {
+                  "outputArtifactKey": "test_dataset",
+                  "producerTask": "data-preprocessing-component"
+                }
+              }
+            },
+            "parameters": {
+              "project_id": {
+                "componentInputParameter": "project_id"
+              },
+              "region": {
+                "componentInputParameter": "region"
+              },
+              "restrict_quantity": {
+                "runtimeValue": {
+                  "constant": false
+                }
+              }
+            }
+          },
+          "taskInfo": {
+            "name": "Test Model - Description Modified (Drift Test)"
+          }
+        }
+      }
+    },
+    "inputDefinitions": {
+      "parameters": {
+        "batch_size": {
+          "defaultValue": 4.0,
+          "isOptional": true,
+          "parameterType": "NUMBER_INTEGER"
+        },
+        "bucket_name": {
+          "defaultValue": "mlops-466819-model-artifacts",
+          "isOptional": true,
+          "parameterType": "STRING"
+        },
+        "dataset_id": {
+          "defaultValue": "gfv_dataset",
+          "isOptional": true,
+          "parameterType": "STRING"
+        },
+        "endpoint_display_name": {
+          "defaultValue": "weight-extraction-endpoint",
+          "isOptional": true,
+          "parameterType": "STRING"
+        },
+        "epochs": {
+          "defaultValue": 5.0,
+          "isOptional": true,
+          "parameterType": "NUMBER_INTEGER"
+        },
+        "learning_rate": {
+          "defaultValue": 0.0003,
+          "isOptional": true,
+          "parameterType": "NUMBER_DOUBLE"
+        },
+        "model_display_name": {
+          "defaultValue": "t5-weight-extraction",
+          "isOptional": true,
+          "parameterType": "STRING"
+        },
+        "model_name": {
+          "defaultValue": "t5-large",
+          "isOptional": true,
+          "parameterType": "STRING"
+        },
+        "project_id": {
+          "defaultValue": "mlops-466819",
+          "isOptional": true,
+          "parameterType": "STRING"
+        },
+        "region": {
+          "defaultValue": "us-central1",
+          "isOptional": true,
+          "parameterType": "STRING"
+        },
+        "table_id": {
+          "defaultValue": "gfv_data_hashed",
+          "isOptional": true,
+          "parameterType": "STRING"
+        },
+        "test_split": {
+          "defaultValue": 0.2,
+          "isOptional": true,
+          "parameterType": "NUMBER_DOUBLE"
+        },
+        "train_split": {
+          "defaultValue": 0.8,
+          "isOptional": true,
+          "parameterType": "NUMBER_DOUBLE"
+        }
+      }
+    },
+    "outputDefinitions": {
+      "artifacts": {
+        "data-preprocessing-component-data_stats": {
+          "artifactType": {
+            "schemaTitle": "system.Metrics",
+            "schemaVersion": "0.0.1"
+          }
+        },
+        "model-training-component-training_metrics": {
+          "artifactType": {
+            "schemaTitle": "system.Metrics",
+            "schemaVersion": "0.0.1"
+          }
+        }
+      }
+    }
+  },
+  "schemaVersion": "2.1.0",
+  "sdkVersion": "kfp-2.8.0"
+}
