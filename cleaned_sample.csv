@@ -1,0 +1,288 @@
+name,variant,description,weight,extracted_weight,extracted_quantity,extraction_method,target,target_text
+Chicken Wings (Party Style),,,"
+                                    1.1 lb avg. / pkg
+                                ",1.1,1.0,weight_raw_fallback,1.1,1 x 1.1 lbs
+Pork Breakfast Sasuage Patties | 1 lb,Default Title,"<p>Savor our 8-portions of pasture-raised breakfast sausage patties, perfect for a quick, delicious breakfast or brunch!</p>",grams:680,1.0,1.0,name_complete,1.0,1 x 1.0 lbs
+Country Style Ribs,1.5 lbs,"<p class=""whitespace-normal break-words"">Grass-fed and grass-finished boneless country style ribs. These meaty cuts are well-suited for slow cooking methods like braising or smoking, and also work well on the grill.</p>
+<p class=""whitespace-normal break-words""><strong>Product Details:</strong></p>
+<ul class=""[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-1.5 pl",grams:1134,1.5,1.0,variant_complete,1.5,1 x 1.5 lbs
+Organic Green Peas,,,"
+                                    10oz Bag
+                                ",0.625,1.0,weight_raw_fallback,0.625,1 x 0.6 lbs
+100% Grassfed Salted Butter,,,"
+                                    8oz | Frozen Pkg
+                                ",0.5,1.0,weight_raw_fallback,0.5,1 x 0.5 lbs
+Smoked Pork Chop,,,"
+                                    8 oz chop /  pkg
+                                ",0.5,1.0,weight_raw_fallback,0.5,1 x 0.5 lbs
+Chicken Breast,,,"
+                                    1.1 lb avg. / pkg
+                                ",1.1,1.0,weight_raw_fallback,1.1,1 x 1.1 lbs
+Beef Boneless Chuck Roast,,,"
+                                    2 lb. avg. / pkg
+                                ",2.0,1.0,weight_raw_fallback,2.0,1 x 2.0 lbs
+Pork Collar Steak,,,"
+                                    12 oz avg. / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Lamb Soup Bones Mixed With Marrow,,,"
+                                    2.3 lb avg. / pkg
+                                ",2.3,1.0,weight_raw_fallback,2.3,1 x 2.3 lbs
+Beef Fajita Meat,,,"
+                                    12 oz avg. / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Grassfed Ground Bull,Default Title,"<meta charset=""utf-8"">
+<p data-mce-fragment=""1""><span data-mce-fragment=""1""><meta charset=""utf-8"">On our farm, we don't castrate our male cattle, which leaves us with a few hundred bulls to process every year. In addition to maintaining a closed-loop genetic approach to creating our own breed of cattle, we are excited to offer our customers a unique product not widely available. Can you imagine th",grams:454,0.0,1.0,description_complete,0.0,1 x 0.0 lbs
+Heritage Ham Roast (SUGAR FREE),,,"
+                                    2 lb avg. / pkg
+                                ",2.0,1.0,weight_raw_fallback,2.0,1 x 2.0 lbs
+Lamb Bacon Ends,,,"
+                                    8 oz avg. / pkg
+                                ",0.5,1.0,weight_raw_fallback,0.5,1 x 0.5 lbs
+12oz Jalapeno Bratwurst Links (Sugar Free),,,"
+                                    12 oz / pkg
+                                ",0.75,1.0,name_complete,0.75,1 x 0.8 lbs
+Bone-In Ribeye 35-Dry Age - The Rarest Beef in America,2.25 - 2.5 lbs,"<p class=""MsoNormal""><span>Experience the apex of grass-fed excellence with our ultra-exclusive <span class=""m_-4771582983077134258SpellE"">Marbre</span> Noir bone-in ribeye. Double-aged to perfection, this bone-in ribeye is a game-changer, regeneratively raised on our family ranch with unparalleled flavor and tenderness.<u></u><u></u></span></p>
+<p class=""MsoNormal""><b><span>Premium 36+ Month Gras",grams:1134,2.5,1.0,variant_complete,2.5,1 x 2.5 lbs
+Chicken Bratwurst,,,"
+                                    1 lb / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Beef Sirloin Tip Roast,,,"
+                                    2.1 lb avg. / pkg
+                                ",2.1,1.0,weight_raw_fallback,2.1,1 x 2.1 lbs
+"Beef Ribeye Steak, Cowboy Cut",,,"
+                                    16 oz avg. / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Ground Beef,,,"
+                                    1lb / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Beef Summer Sausage - 8 oz,Default Title,"<p>Beef Summer Sausage is a delicious addition to US Wellness Meats’ product line! It is fully cooked and ready to eat. Try it today for a satisfying snack.</p>
+<p>Ingredients: Beef, Celtic Sea Salt, Black Pepper, Spices (Black Pepper, Nutmeg), Garlic Powder</p>
+<p>Each Beef Summer Sausage averages 8 ounces.</p>
+<p>All of US Wellness Meats’ beef products are 100% grass-fed and grass-finished.</p>",grams:227,0.5,1.0,name_complete,0.5,1 x 0.5 lbs
+1/8 Beef Box,,,<p>We pack every order with just the right amount of dry ice to keep everything frozen during transi,0.3125,2.0,weight_raw_fallback,0.625,2 x 0.3 lbs
+Beef Suet,,,"
+                                    1.5 lb avg. / pkg
+                                ",1.5,1.0,weight_raw_fallback,1.5,1 x 1.5 lbs
+Beef Ground Sirloin,,,"
+                                    1lb / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Beef Marrow Bones,Default Title,"<meta charset=""utf-8""><span><span>1 package of 2-3 pounds assorted Beef Marrow Bones</span></span><meta charset=""utf-8""><span>—perfect for cooking, special dishes, bone broths, stocks, and lucky dog bones!</span><br><i><br></i>
+<ul>
+<li>2.5-3 lb average bag. Bones are in loose bag, not vacuum sealed. May have ice. Bones are cut lengthwise in half.</li>
+</ul>",grams:1361,3.0,1.0,description_complete,3.0,1 x 3.0 lbs
+Farm Staples Box,,,"<p class=""tw-m-0 tw-mt-1 tw-leading-4 tw-text-sm tw-text-gray-500"">1lb / pkg</p> 1lb / pkg <p class=",0.3125,2.0,weight_raw_fallback,0.625,2 x 0.3 lbs
+Beef Breakfast Polish Sausage Sliders - 6 (3 oz) patties,Default Title,"<p>Are you tired of eating the same old thing for breakfast? Try US Wellness Meats’ Beef Breakfast Polish Sausage Sliders and you will not be disappointed. Pair the Beef Breakfast Polish Sausage Sliders with free-range eggs on your breakfast plate for amazing results.</p>
+<p>Beef Breakfast Polish Sausage Sliders are made with 75% lean ground beef.</p>
+<p>Total weight: 1.125 lbs.... contains 6 (3 o",grams:510,0.1875,6.0,name_complete,1.125,6 x 0.2 lbs
+Boneless Pork Chops - four 4 oz chops,Default Title,"<p>US Wellness Meats’ newest version of pork chops is Boneless Pork Chops. The cut is very versatile and can be used in many ways.</p>
+<p>Each package contains 4 (4 ounce) Boneless Pork Chops. The package averages 1 pound.</p>
+<p>All of our pasture-raised heritage pork is from like-minded, sustainable family farms.</p>
+<p><b><span>All US Wellness Meats pigs are GAP certified, Prop 12, unconfined w",grams:454,0.25,4.0,name_complete,1.0,4 x 0.2 lbs
+Premium Reserve Gourmet Burgers,,,"
+                                    (2) 5 oz patties / pkg
+                                ",0.3125,2.0,weight_raw_fallback,0.625,2 x 0.3 lbs
+Grass Fed Beef Oxtail,Case (4 units),"<p><span>Oxtails are great for a variety of stewing recipes.  Cooked low and slow, they come out tender and delicious! Each package is around 1.5 lbs and there are 4 packages in a case.</span></p>",grams:2722,1.5,4.0,cross_field_description,6.0,4 x 1.5 lbs
+Extra Lean Grass-Fed Ground Beef,Default Title,"<style type=""text/css""><!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--></style>
+<p><span data-sheets-root=""1"">Our extra lean ground beef, with a 90/10 meat-to-fat ratio, offers the perfect balance of flavor and nutrition. Packed with essential vitamins, minerals, and omega-3 fatty acids, it’s a wholesome, protein-rich choice to support your overall health. Ideal for juicy b",grams:454,1.0,1.0,description_complete,1.0,1 x 1.0 lbs
+12oz Bratwurst Links (Sugar Free),,,"
+                                    12 oz / pkg
+                                ",0.75,1.0,name_complete,0.75,1 x 0.8 lbs
+Organic Carrots,,,"
+                                    10oz Bag
+                                ",0.625,1.0,weight_raw_fallback,0.625,1 x 0.6 lbs
+Chicken Drumsticks,,,"
+                                    1.1 lb avg. / pkg
+                                ",1.1,1.0,weight_raw_fallback,1.1,1 x 1.1 lbs
+Pork Sirloin Chops,,,"
+                                    12 oz avg. / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Beef Marrow Bones,,,"
+                                    1 lb avg. / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Bone-In Ribeye 35-Dry Age - The Rarest Beef in America,1.4 - 1.74 lbs,"<p class=""MsoNormal""><span>Experience the apex of grass-fed excellence with our ultra-exclusive <span class=""m_-4771582983077134258SpellE"">Marbre</span> Noir bone-in ribeye. Double-aged to perfection, this bone-in ribeye is a game-changer, regeneratively raised on our family ranch with unparalleled flavor and tenderness.<u></u><u></u></span></p>
+<p class=""MsoNormal""><b><span>Premium 36+ Month Gras",grams:794,1.74,1.0,variant_complete,1.74,1 x 1.7 lbs
+Yellowfin Ahi Tuna,,,"
+                                    1 |6 oz | pkg (RAW)
+                                ",0.375,1.0,weight_raw_fallback,0.375,1 x 0.4 lbs
+Key West Pink Shrimp (RAW),,,"
+                                    12 oz | 31-35 Count Peeled & Deveined Tail Off
+                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Ground Beef- Ancestral Blend,,,"
+                                    1lb / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+"Ribeye Steak, Grass Fed, Regenerative, Non-Certified","2 Steaks, Each 10 oz","<p>This robustly flavored steak is Glenn's favorite, as it combines tenderness with definitive flavor and marbling from high mountain Pahsimeroi pastures. This is one of the very best steaks we offer, and is always in short supply due to high demand and small numbers per beef. Each ribeye is weighed and selected by us to ensure that the steak meets our rigorous quality standards. <br></p>
+<p>Each ",grams:590,0.625,2.0,variant_complete,1.25,2 x 0.6 lbs
+Teriyaki Sauce,,,"
+                                    7 oz (198 g) Pouch
+                                ",0.4375,1.0,weight_raw_fallback,0.4375,1 x 0.4 lbs
+Buffalo Bacon Infused Burgers,,,"
+                                    10 oz / pkg
+                                ",0.625,1.0,weight_raw_fallback,0.625,1 x 0.6 lbs
+Grass Fed Beef Top Sirloin Steak 12 oz,Case (8 units),"<p><strong>Net Wt. 12 oz</strong><br><span></span></p>
+<p><span>Raised with no antibiotics, no added hormones, and no grains are ever given to our cattle.</span></p>",grams:2722,0.75,8.0,cross_field_name,6.0,8 x 0.8 lbs
+"Ribeye Steak, Organic Grass Fed","1 steak, 11-14 oz each","<p style=""white-space: pre-wrap;"" class="""">Enjoy one of our favorite cuts, the delicious and flavorful Rib-Eye Steak. Select your quantity below. Approximately 11-14<span data-mce-fragment=""1"" style=""font-weight: 400;""> oz per steak.</span></p>
+<p style=""white-space: pre-wrap;"" class=""""><strong>REGENERATIVE ORGANIC CERTIFIED</strong><strong><span>® | </span>CERTIFIED ORGANIC | ANIMAL WELFARE CERTI",grams:680,0.78125,1.0,variant_complete,0.78125,1 x 0.8 lbs
+Pork Bacon Ends (Sugar Free),,,"
+                                    12 oz / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+12oz Italian Bratwurst Links (Sugar Free),,,"
+                                    12 oz / pkg
+                                ",0.75,1.0,name_complete,0.75,1 x 0.8 lbs
+100% Grassfed Unsalted Butter,,,"
+                                    8oz | Frozen Pkg
+                                ",0.5,1.0,weight_raw_fallback,0.5,1 x 0.5 lbs
+Organic Mixed Vegetables,,,"
+                                    10oz Bag
+                                ",0.625,1.0,weight_raw_fallback,0.625,1 x 0.6 lbs
+Organic Sweet Corn,,,"
+                                    10oz Bag
+                                ",0.625,1.0,weight_raw_fallback,0.625,1 x 0.6 lbs
+Whole Turkey - Frozen,,,"
+                                    12 - 18 lb Turkey
+                                ",18.0,1.0,weight_raw_fallback,18.0,1 x 18.0 lbs
+Chicken Livers,,,"
+                                    1.1lbs avg. / pkg
+                                ",1.1,1.0,weight_raw_fallback,1.1,1 x 1.1 lbs
+Chicken Tenderloins,,,"
+                                    1 lb avg. / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Beef Petite Tender,,,"
+                                    8 oz avg. / pkg
+                                ",0.5,1.0,weight_raw_fallback,0.5,1 x 0.5 lbs
+Heritage Hot Dogs,,,"
+                                    10 oz / pkg
+                                ",0.625,1.0,weight_raw_fallback,0.625,1 x 0.6 lbs
+Chicken Backs with Frames attached,,,"
+                                    2.5 lbs avg. / pkg
+                                ",2.5,1.0,weight_raw_fallback,2.5,1 x 2.5 lbs
+Hotdogs | 10oz,Default Title,"<p>Indulge in our delicious grass-fed beef and pastured pork hotdogs, ideal for BBQs or family gatherings. Quick, tasty, and always a hit!</p>",grams:454,0.625,1.0,name_complete,0.625,1 x 0.6 lbs
+Bulk Beef Tallow,Case (4 units),"<p><strong>8lb Bulk Packaged Units – 4 Units in a Case</strong></p>
+<p>Elevate your culinary creations and skincare routine with our premium Bulk Beef Tallow, sourced exclusively from 100% grass-fed and pasture-raised cattle. Our tallow is crafted with the highest standards of quality and sustainability, ensuring a product that is not only versatile and nutrient-rich but also environmentally frien",grams:14515,8.0,4.0,cross_field_description,32.0,4 x 8.0 lbs
+Organic Green Beans,,,"
+                                    10oz Bag
+                                ",0.625,1.0,weight_raw_fallback,0.625,1 x 0.6 lbs
+Organic Broccoli,,,"
+                                    7oz Bag
+                                ",0.4375,1.0,weight_raw_fallback,0.4375,1 x 0.4 lbs
+Organic Cherries,,,"
+                                    16 oz | pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Spicy Sausage (Sugar Free),,,"
+                                    1 lb / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Ground Turkey,,,"
+                                    1 lb / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Beef Salami - 8 oz,Default Title,"<p>One taste of US Wellness Meats’ Beef Salami and you'll be hooked! Beef Salami is fully cooked, ready to eat, sugar free, full of delicious flavor, has a spicy kick, and is all beef.</p>
+<p>Ingredients: Beef, Celtic Sea Salt, Spices (Black Pepper, Nutmeg, whole pepper corns, red pepper), Garlic Powder</p>
+<p>Each Beef Salami package averages 8 ounces.</p>
+<p>All of US Wellness Meats’ beef produc",grams:227,0.5,1.0,name_complete,0.5,1 x 0.5 lbs
+Beef Sirloin Tip Steaks - 2 (8 oz) steaks,Default Title,"<p>Sirloin Tip Steak is a wonderful option for a light, healthy meal and creates a masterpiece every time it is served. The Sirloin Tip Steak package is perfect for a lean dinner for two.</p>
+<p>Each package contains 2 (8 ounce) Sirloin Tip Steaks and weighs approximately 1 pound. </p>
+<p>All of US Wellness Meats' beef products are 100% grass-fed and grass-finished.</p>
+
+",grams:454,0.5,2.0,name_complete,1.0,2 x 0.5 lbs
+Boneless Holiday Ham,,,"
+                                    4.15 lbs Avg./ pkg
+                                ",4.15,1.0,weight_raw_fallback,4.15,1 x 4.2 lbs
+Whole Beef Tenderloin,,,"
+                                    3.3 lbs average
+                                ",3.3,1.0,weight_raw_fallback,3.3,1 x 3.3 lbs
+Diced Heritage Ham (SUGAR FREE),,,"
+                                    12 oz / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Best of Farm Box,,,<p>We pack every order with just the right amount of dry ice to keep everything frozen for safe home,0.3125,2.0,weight_raw_fallback,0.625,2 x 0.3 lbs
+Lamb Bacon (Sugar Free),,,"
+                                    8 oz / pkg
+                                ",0.5,1.0,weight_raw_fallback,0.5,1 x 0.5 lbs
+Pork Tenderloin,,,"
+                                    1.1 lb avg. / pkg
+                                ",1.1,1.0,weight_raw_fallback,1.1,1 x 1.1 lbs
+Beef Hickory Smoked Sausage,,,"
+                                    12 oz / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Chicken Sausage Patties,,,"
+                                    1 lb / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+Beef Meat for Stew,,,"
+                                    12 oz avg. / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Bison Heart,,,"
+                                    8 oz avg | pkg
+                                ",0.5,1.0,weight_raw_fallback,0.5,1 x 0.5 lbs
+Beef Skirt Steak | 12oz,Default Title,"<p>Try our 12 oz grass fed beef skirt steak, perfect for tacos or fajitas. Its bold flavor and tenderness make it a favorite for grilling and quick meals.</p>",grams:12,0.75,1.0,name_complete,0.75,1 x 0.8 lbs
+Grassfed Beef Steakburger Grind,Default Title,"<p>This ground beef blend will certainly impress you with its bold grassfed steak flavor! Only using middle meats like rib loins, strip loins, and tenderloins, we crafted a ground beef blend that's sure to thrill steak lovers everywhere. This 85/15 combination is a nice balance of savory steak and buttery fat.</p>
+<p>This item ships in 1 pound packs.</p>",grams:454,1.0,1.0,description_complete,1.0,1 x 1.0 lbs
+"Pork Kidney, Organic",Default Title,"<p><span>Certified Organic, Pasture-Raised Pork </span><span>Kidney p</span>acked with nutrients, this versatile organ meat can elevate your dishes while providing essential nutrition. Support your health and taste buds with this nutritious and flavorful option. <br></p>
+<p>Approximately 1-2 pound package</p>
+<p class="""" style=""white-space: pre-wrap;""><strong>REGENERATIVE ORGANIC CERTIFIED</strong",grams:454,2.0,1.0,description_complete,2.0,1 x 2.0 lbs
+'Frenched' Lamb Rack,,,"
+                                    1.5 lb avg. / pkg
+                                ",1.5,1.0,weight_raw_fallback,1.5,1 x 1.5 lbs
+Bison Liver,,,"
+                                    8oz avg | pkg
+                                ",0.5,1.0,weight_raw_fallback,0.5,1 x 0.5 lbs
+Tallow Candle - Summer Scents,Lemongrass (EO),"<p>Our 8 oz Tallow Candles are made up of only 3 ingredients: Grassfed Beef Tallow, Beeswax, &amp; Fragrance or Essential Oil. We love the simplicity of the candles and how they have quickly become a farm favorite! You can be confident in burning our candles and having a little piece of our farm in your home.</p>
+<p><span>EO = These candles were made with Essential Oils.</span></p>",grams:454,0.5,1.0,description_complete,0.5,1 x 0.5 lbs
+Organic Grass Fed Regenerative Ribeye Steak Leaner,"1 Steak, 20 oz","<p>The Alderspring ribeye combines tenderness with definitive flavor from the high mountain pastures of our Pahsimeroi Valley. This is a slightly leaner version of our typical ribeye, at a much lower per-ounce price but still with enough marbling to bring flavor. Each ribeye is weighed and selected by us to ensure that the steak meets our rigorous quality standards. <br></p>
+<p>Each steak is indiv",,1.25,1.0,variant_complete,1.25,1 x 1.2 lbs
+Beef Soup Bones,,,"
+                                    3 lbs. avg. / pkg
+                                ",3.0,1.0,weight_raw_fallback,3.0,1 x 3.0 lbs
+Bacon Infused Burgers,,,"
+                                    (2) 5 oz patties / pkg
+                                ",0.3125,2.0,weight_raw_fallback,0.625,2 x 0.3 lbs
+Lamb Shanks,LARGE,"<p>Each package includes 2 shanks.</p>
+<p>Weight and Sizes are as follows: </p>
+<ul>
+<li>Small 1.0-1.5 lbs </li>
+<li>Medium 1.5-2 lbs </li>
+<li>
+<span>Large over 2-3 lbs </span> </li>
+</ul>",grams:907,1.5,1.0,description_complete,1.5,1 x 1.5 lbs
+"1/4 PASTURED HOG ""Just The Hits"" ( +2 Packs of Bacon For Free!)",Default Title,"<p><b>AVAILABLE  FOR SHIPPING OR ON-FARM PICKUP! </b></p>
+<p><meta charset=""utf-8""><span style=""font-weight: 400;"">Each share has 2 breakdown options. Breakdown for the<span> <strong>Just the Hits</strong></span></span><b> (center cuts and sausage)</b><span style=""font-weight: 400;"">,</span><span style=""font-weight: 400;""> described below. Each cut is individually portioned, labeled and sealed for",grams:20412,0.75,3.0,description_complete,2.25,3 x 0.8 lbs
+Essential Meat Box ~ Subscription,Default Title,"<p class="""" style=""white-space: pre-wrap;"">The essential meat box includes all your favorites!…</p>
+<p>~ 2 Bacon</p>
+<p>~ 2 New York Strip Steaks</p>
+<p>~ 1 Pork Roast</p>
+<p>~ 2 lbs Ground Beef</p>
+<p class="""" style=""white-space: pre-wrap;""><strong><span data-sheets-userformat='{""2"":16897,""3"":{""1"":0},""12"":0,""17"":1}' data-sheets-value='{""1"":2,""2"":""CERTIFIED ORGANIC | ANIMAL WELFARE CERTIFIED | REG",grams:4536,2.0,1.0,description_complete,2.0,1 x 2.0 lbs
+Grassfed Beef Eye of Round,Default Title,"Grassfed eye of round roasts weigh approximately 3 pounds. A lean roast that does well with stewing and braising, eye of round makes for an easy pot roast or thinly sliced sandwich meat.<br><br><br>*Fresh (unaged) ships frozen",grams:1361,3.0,1.0,description_complete,3.0,1 x 3.0 lbs
+"Teres Major, Organic",Default Title,"<style type=""text/css""><!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--></style>
+<p><span data-sheets-root=""1"">Our Teres Major rivals filet mignon in tenderness. This cut offers a rich, buttery texture and complex flavor. Lean yet juicy, it's perfect for grilling or pan-searing. Certified Organic and raised without antibiotics or hormones, it's an exceptional choice for beef",grams:142,0.5625,5.0,description_complete,2.8125,5 x 0.6 lbs
+Grassfed Lamb Leg (Bone-In),Default Title,"Perfect for roasting for a holiday or celebration, our lamb legs are full of flavor. Each leg will weigh approximately 5 to 6 pounds each.<br><br><br>",grams:2268,6.0,1.0,description_complete,6.0,1 x 6.0 lbs
+Italian Sausage (Sugar Free),,,"
+                                    1lb / pkg
+                                ",1.0,1.0,weight_raw_fallback,1.0,1 x 1.0 lbs
+"Beef Filet Mignon ""Tips""",,,"
+                                    12 oz. avg. / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Bison Filet Mignon,,,"
+                                    6 oz avg. / pkg
+                                ",0.375,1.0,weight_raw_fallback,0.375,1 x 0.4 lbs
+Pork Boneless Chops,EXTRA LARGE,"<p>These thick cut Boneless Pork Chops are just as delicious as our classic bone-in chops, but are trimmed and ready to cook. They are perfect for quick delicious weeknight meals. </p>
+<p>Weight and sizes are as follows: </p>
+<ul>
+<li>Medium up to 1.5 lbs</li>
+<li>Large 1.5+ lbs</li>
+<li><span>Extra Large 2+ lbs</span></li>
+<li>Each package comes with two chops.</li>
+</ul>",grams:454,2.0,1.0,size_based,2.0,1 x 2.0 lbs
+Beef Brisket Roast | 5 lb,Default Title,"<p>Indulge in our 5 lb grass fed beef brisket roast, perfect for smoking or braising. This flavorful cut is a favorite for BBQ enthusiasts and family gatherings.</p>",grams:80,5.0,1.0,name_complete,5.0,1 x 5.0 lbs
+Pork Summer Sausage (Sugar Free),,,"
+                                    12 oz / pkg
+                                ",0.75,1.0,weight_raw_fallback,0.75,1 x 0.8 lbs
+Ground Beef  Dry-Aged + Grass-Fed & Finished (~1 lb Package),Default Title,"<p><span style=""font-weight: 400;"">1 lb Package</span></p>
+<p><span style=""font-weight: 400;"">Our dry-aged grass-fed and finished ground beef is made from a majority of chuck, brisket, and steak trim.</span></p>
+<p>Carter Country <meta charset=""utf-8""><span data-mce-fragment=""1"">grass-fed and finished ground beef </span>is aged for a minimum of 14 days to maximize our signature grass-fed and finis",grams:454,1.0,1.0,name_complete,1.0,1 x 1.0 lbs
+Ground Rabbit - 1 lb,Default Title,"<p>US Wellness Meats’ Ground Rabbit has the highest protein content of any meat we offer.</p>
+<p>These farm raised rabbits are an excellent alternative meat source. They are raised with NO antibiotics, NO added growth hormones, and fed exclusively on untreated forage and hay.</p>
+<p>Rabbit is the elite white meat due to a fatty acid profile that limits cholesterol levels.</p>
+<p>1 lb package</p>",grams:454,1.0,1.0,name_complete,1.0,1 x 1.0 lbs
+Lamb Sweetbreads - 12 oz.,Default Title,"<p>US Wellness Meats’ assorted Lamb Sweetbread is a rare delicacy. Sweetbread is highly sought-after by chefs, adventurous home cooks, and connoisseurs because of its mild, sweet flavor.</p>
+<p>Lamb Sweetbread is very versatile and easy to prepare. The offal meat can be sautéed, poached, grilled, fried, braised, or roasted.</p>
+<p>The demand for Lamb Sweetbread exceeds supply, so US Wellness Meats",grams:340,0.75,1.0,name_complete,0.75,1 x 0.8 lbs
+"New York Strip Steak 8-10 oz, Organic Grass Fed",4 Steaks,"<p class="""" style=""white-space: pre-wrap;"">New York Strip Steak - Boneless, Approx 8-10 oz</p>
+<p class="""" style=""white-space: pre-wrap;"">New York Strip Steak is an extra tender and tasty cut from the boneless section of the top loin</p>
+<p class="""" style=""white-space: pre-wrap;""><strong>REGENERATIVE ORGANIC CERTIFIED</strong><strong><span>® | </span>CERTIFIED ORGANIC | ANIMAL WELFARE CERTIFIED | ",grams:907,0.625,4.0,cross_field_name,2.5,4 x 0.6 lbs

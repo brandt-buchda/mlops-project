@@ -36,7 +36,7 @@ resource "google_bigquery_dataset" "gfv_dataset" {
   }
 }
 
-# BigQuery Table with schema
+# BigQuery Table with schema (original)
 resource "google_bigquery_table" "gfv_table" {
   dataset_id = google_bigquery_dataset.gfv_dataset.dataset_id
   table_id   = "gfv_data"
@@ -82,6 +82,77 @@ resource "google_bigquery_table" "gfv_table" {
   ])
 }
 
+# BigQuery Training Table with enhanced schema
+resource "google_bigquery_table" "gfv_training_table" {
+  dataset_id = google_bigquery_dataset.gfv_dataset.dataset_id
+  table_id   = "gfv_data_hashed_training"
+
+  deletion_protection = false # Set to true for production
+
+  labels = {
+    env     = "dev"
+    project = "mlops"
+    type    = "training"
+  }
+
+  schema = jsonencode([
+    {
+      name        = "name"
+      type        = "STRING"
+      mode        = "NULLABLE"
+      description = "Product name"
+    },
+    {
+      name        = "variant"
+      type        = "STRING"
+      mode        = "NULLABLE"
+      description = "Product variant name"
+    },
+    {
+      name        = "description"
+      type        = "STRING"
+      mode        = "NULLABLE"
+      description = "Product description"
+    },
+    {
+      name        = "weight"
+      type        = "STRING"
+      mode        = "NULLABLE"
+      description = "Original weight raw text"
+    },
+    {
+      name        = "extracted_weight"
+      type        = "FLOAT"
+      mode        = "NULLABLE"
+      description = "Individual weight extracted (lbs)"
+    },
+    {
+      name        = "extracted_quantity"
+      type        = "INTEGER"
+      mode        = "NULLABLE"
+      description = "Quantity extracted"
+    },
+    {
+      name        = "extraction_method"
+      type        = "STRING"
+      mode        = "NULLABLE"
+      description = "Method used for weight extraction"
+    },
+    {
+      name        = "target"
+      type        = "FLOAT"
+      mode        = "NULLABLE"
+      description = "Final calculated weight (lbs) - target variable for ML"
+    },
+    {
+      name        = "target_text"
+      type        = "STRING"
+      mode        = "NULLABLE"
+      description = "Target in text format for text-to-text models"
+    }
+  ])
+}
+
 # Variables
 variable "project_id" {
   description = "GCP Project ID"
@@ -100,9 +171,19 @@ output "table_id" {
   value       = google_bigquery_table.gfv_table.table_id
 }
 
+output "training_table_id" {
+  description = "BigQuery training table ID"
+  value       = google_bigquery_table.gfv_training_table.table_id
+}
+
 output "full_table_id" {
   description = "Full BigQuery table ID for queries"
   value       = "${var.project_id}.${google_bigquery_dataset.gfv_dataset.dataset_id}.${google_bigquery_table.gfv_table.table_id}"
+}
+
+output "full_training_table_id" {
+  description = "Full BigQuery training table ID for queries"
+  value       = "${var.project_id}.${google_bigquery_dataset.gfv_dataset.dataset_id}.${google_bigquery_table.gfv_training_table.table_id}"
 }
 
 output "dataset_location" {
